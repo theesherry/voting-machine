@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-DyZgY3KbPGoKr5Wc2kNGwXsDQO8S9Rr3L1eNcU1Y2jvhLBRwDxZ+uW/eu1ljmYxU" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f4f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .nav-pills .nav-link {
+            border-radius: 0.5rem;
+            font-weight: bold;
+        }
+        .nav-link.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .form-outline input {
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .form-outline input:focus {
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            border-color: #007bff;
+        }
+        .btn-primary {
+            border-radius: 5px;
+        }
+        .btn-link {
+            color: #007bff;
+        }
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+        .social-buttons .btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card p-4">
+        <!-- Pills navs -->
+        <ul class="nav nav-pills nav-justified mb-4" id="ex1" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="tab-login" data-mdb-pill-init href="#pills-login" role="tab" aria-controls="pills-login" aria-selected="true">Login</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="tab-register" href="routes/reg.html" role="tab" aria-controls="pills-register" aria-selected="false">Register</a>
+            </li>
+        </ul>
+        <!-- Pills content -->
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                <form action="./api/login.php" method="POST" enctype="multipart/form-data">
+                    <div class="text-center mb-3">
+                        <p>Sign in with:</p>
+                        <div class="social-buttons">
+                            <button type="button" class="btn btn-link btn-floating mx-1" data-mdb-ripple-init>
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                            <button type="button" class="btn btn-link btn-floating mx-1" data-mdb-ripple-init>
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button type="button" class="btn btn-link btn-floating mx-1" data-mdb-ripple-init>
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                            <button type="button" class="btn btn-link btn-floating mx-1" data-mdb-ripple-init>
+                                <i class="fab fa-github"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <p class="text-center">or:</p>
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="loginName" class="form-control" name="mobile" required />
+                        <label class="form-label" for="loginName">Email or Username</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="loginPassword" class="form-control" name="password" required />
+                        <label class="form-label" for="loginPassword">Password</label>
+                    </div>
+
+                    <!-- Role selection -->
+                    <select id="cars" class="select form-control-lg mb-4" name="role" required>
+                        <option value="1">Voter</option>
+                        <option value="2">Group</option>
+                    </select>
+
+                    <!-- 2 column grid layout -->
+                    <div class="row mb-4">
+                        <div class="col-md-6 d-flex justify-content-center">
+                            <div class="form-check mb-3 mb-md-0">
+                                <input class="form-check-input" type="checkbox" id="loginCheck" checked />
+                                <label class="form-check-label" for="loginCheck"> Remember me </label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 d-flex justify-content-center">
+                            <a href="#!">Forgot password?</a>
+                        </div>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                    <!-- Register link -->
+                    <div class="text-center">
+                        <p>Not a member? <a href="#!">Register</a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+                <!-- Registration form will go here -->
+            </div>
+        </div>
+        <!-- Pills content -->
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DyZgY3KbPGoKr5Wc2kNGwXsDQO8S9Rr3L1eNcU1Y2jvhLBRwDxZ+uW/eu1ljmYxU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-DyZgY3KbPGoKr5Wc2kNGwXsDQO8S9Rr3L1eNcU1Y2jvhLBRwDxZ+uW/eu1ljmYxU" crossorigin="anonymous"></script>
+
+</body>
+</html>
